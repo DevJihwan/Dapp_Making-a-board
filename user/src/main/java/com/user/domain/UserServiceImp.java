@@ -17,10 +17,11 @@ public class UserServiceImp implements UserService {
     public User joinUser(String name, String age, String address) {
         System.out.println("##########################User Service : Create User Start###########################");
         User user = new User();
+        
         user.setName(name);
         user.setAge(age);
         user.setAddress(address);
-        uset.setStatus(True);
+        user.setStatus(true);
 
         userRepository.save(user);
 

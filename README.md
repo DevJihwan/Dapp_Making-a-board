@@ -1,6 +1,6 @@
 # git push 명령어
-
-# git push -u origin main
+ -> git push -u origin main
+ -> push 할 때 충돌할 경우 : git pull --rebase 
 
 
 

@@ -7,7 +7,6 @@
  -> git config --global user.email
 
 
-
 #################httpie install################
 # OS : mac m1 
 

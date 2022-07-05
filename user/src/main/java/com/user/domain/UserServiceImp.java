@@ -31,4 +31,14 @@ public class UserServiceImp implements UserService {
 
     }
 
+    public User findUser(String name){
+        System.out.println("##########################User Service : Find User Start###########################");
+        Optional<User> userOptional = userRepository.findByname(name);
+        User user = userOptional.get();
+
+        System.out.println("##########################User Service : Find User Start###########################");
+
+        return user;
+    }
+
 }

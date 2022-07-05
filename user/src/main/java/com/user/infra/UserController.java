@@ -23,4 +23,17 @@ public class UserController {
         System.out.println("##########################User Controller : Create User End###########################");
     }
 
+    @GetMapping("/find")
+    public String finfUserSvc(@RequestBody User data) {
+        System.out.println("##########################User Controller : Find User Start###########################");
+        User user = userservice.findUser(data.getName());
+
+        String userName = user.getName();
+        
+        System.out.println("##########################User Controller : Find User End###########################" + userName);
+
+        return userName;
+        
+    }
+
 }

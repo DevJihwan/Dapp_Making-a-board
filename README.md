@@ -26,7 +26,15 @@
 -> docker pull --platform linux/amd64 mysql:8
 
 # docker image - mysql 실행
--> docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql:latest
+    01. 맥 m1 일경우 docker pull mysql 사용 불가능, (arm64 다운로드 안됨)
+        -> docker pull --platform linux/amd64 mysql (이미지 다운로드))
+        -> docker images (이미지 확인)
+        -> docker run --platform linux/amd64 --name mysql -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql:latest (컨테이너 실행)
+        -> docker ps -a (컨테이너 실행 확인)
+        -> docker exec -it mysql bash (mysql 접속)
+    02. m1 아닐 경우
+        -> docker pull mysqlmy 
+        -> docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql:latest
 
 
               

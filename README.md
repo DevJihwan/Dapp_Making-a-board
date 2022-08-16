@@ -1,10 +1,13 @@
-# git push 명령어
- -> git push -u origin main
- -> push 할 때 충돌할 경우 : git pull --rebase 
- # git 명령어
- -> git config --list
- -> git config --global user.name
- -> git config --global user.email
+[Git Command]
+============= 
+
+    # git push 명령어
+        * git push -u origin main
+        * push 할 때 충돌할 경우 : git pull --rebase 
+    # git 명령어
+        * git config --list
+        * git config --global user.name
+        * git config --global user.email
 
 
 #################httpie install################

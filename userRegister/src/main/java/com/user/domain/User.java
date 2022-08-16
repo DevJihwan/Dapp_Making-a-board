@@ -24,4 +24,6 @@ public class User {
 
     private Boolean status;
 
+    private String MetaMaskAddress;
+
 }

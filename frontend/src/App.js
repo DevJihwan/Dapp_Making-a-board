@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import getWeb3 from "./getWeb3.js";
 import axios from "axios";
+import LoginContract from '../smartContract/contracts/SampleToken.sol';
 
 class App extends Component {
 
@@ -66,6 +67,10 @@ class App extends Component {
     //   .then((data) => {console.log("#$"+data.data)})
     //   .catch((Error) => {console.log(Error)})
 }
+
+  transferToken() {
+
+  }
 
 
   render(){

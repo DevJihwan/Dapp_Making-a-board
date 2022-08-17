@@ -1,7 +1,15 @@
+[작업순서]
+=======
+    00. [BE]userRegister Service 작성 (Spring-boot maver) : 
+    01. [DB]Docker Mysql image 
+    02. [DB]DB 생성 및 Service 연결
+    03. [FE]화면에서 사용자의 click - event에 따라 메타마스트 주소 연결
+    04. [FE-BE-DB]axios를 통하여 BE연결 및 DB 저장
+
 [Git Command]
 ============= 
 
-    <h2># git push 명령어</h2>
+    # git push 명령어
         * git push -u origin main
         * push 할 때 충돌할 경우 : git pull --rebase 
     # git 명령어

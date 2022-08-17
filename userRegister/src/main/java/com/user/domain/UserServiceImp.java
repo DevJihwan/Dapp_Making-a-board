@@ -14,7 +14,7 @@ public class UserServiceImp implements UserService {
     @Autowired
     private final UserRepository userRepository;
 
-    public User joinUser(String name, String age, String address) {
+    public User joinUser(String name, String age, String address, String MetaMaskAddress) {
         System.out.println("##########################User Service : Create User Start###########################");
         User user = new User();
         
@@ -22,6 +22,7 @@ public class UserServiceImp implements UserService {
         user.setAge(age);
         user.setAddress(address);
         user.setStatus(true);
+        user.setMetaMaskAddress(MetaMaskAddress);
 
         userRepository.save(user);
 

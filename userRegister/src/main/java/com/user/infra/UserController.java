@@ -19,7 +19,8 @@ public class UserController {
     @PostMapping("/join")
     public void joinUserSvc(@RequestBody User data) {
         System.out.println("##########################User Controller : Create User Start###########################");
-        userservice.joinUser(data.getName(), data.getAge(), data.getAddress());
+        System.out.println("##########################getMetaMaskAddress###########################"+data.getMetaMaskAddress());
+        userservice.joinUser(data.getName(), data.getAge(), data.getAddress(), data.getMetaMaskAddress());
         System.out.println("##########################User Controller : Create User End###########################");
     }
 

@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import getWeb3 from "./getWeb3.js";
 import axios from "axios";
-import LoginContract from '../smartContract/contracts/SampleToken.sol';
+//import LoginContract from '../smartContract/contracts/SampleToken.sol';
+import LoginContract from './contracts/LoginContract.json';
+
 
 class App extends Component {
 
@@ -12,7 +14,8 @@ class App extends Component {
     this.state = {
       userAccount: null,
       userToken: null,
-      web3:null
+      web3:null,
+      userContractInstance:null
     };
   }
 
@@ -61,17 +64,39 @@ class App extends Component {
 
       }
     )
-    console.log("%%%%"+submitResults);
+    console.log("##########END submitInfo########"+submitResults);
 
     // axios.get('/users')
     //   .then((data) => {console.log("#$"+data.data)})
     //   .catch((Error) => {console.log(Error)})
-}
-
-  transferToken() {
 
   }
 
+  sendToken = async() => {
+      console.log("##########START sendToken########");
+
+      const contract = require("@truffle/contract");
+      const loginToken = contract(LoginContract);
+
+      console.log("##########TEST########"+contract);
+      //console.log("##########START sendToken########");
+
+      await loginToken.deployed()
+        .then(instance => {
+          this.setState({
+            userContractInstance: instance
+          });
+        });
+
+      // await this.state.userContractInstance.Register(
+      //   { from: this.state.userAccount
+      //     value: 
+
+      //   }
+
+      // );
+
+    }
 
   render(){
     return (
@@ -93,6 +118,12 @@ class App extends Component {
             onClick = {() => this.submitInfo()}
           >
             Submit your account
+          </button>
+          <button 
+            className="sendToken"
+            onClick = {() => this.sendToken()}
+          >
+            Send DWT Token
           </button>
         </header>
       </div>

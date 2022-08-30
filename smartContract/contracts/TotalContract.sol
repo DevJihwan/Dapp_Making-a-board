@@ -116,7 +116,7 @@ contract StandardToken is ERC20 {
     }
 }
 
-contract DWToken is StandardToken {
+contract TotalContract is StandardToken {
     string public name; //token name
     uint8 public decimals; //소수점(18)to using wei
     string public symbol; //unit of Token

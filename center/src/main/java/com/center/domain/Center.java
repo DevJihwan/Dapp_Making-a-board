@@ -1,4 +1,4 @@
-package main.java.com.center.domain;
+package com.center.domain;
 
 import javax.persistence.*;
 import lombok.Data;

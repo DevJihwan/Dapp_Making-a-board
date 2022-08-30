@@ -1,14 +1,16 @@
-package main.java.com.center.domain;
+package com.center.domain;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import main.java.com.center.infra.CenterRepository;
+
+import com.center.infra.CenterRepository;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CenterServiceImp implements CenterService{
+public class CenterServiceImp implements CenterService {
 
     @Autowired
     private final CenterRepository centerRepository;
@@ -16,7 +18,7 @@ public class CenterServiceImp implements CenterService{
     public Center openCenter(String name, String address) {
         System.out.println("##########################Center Service : open Center Start###########################");
         Center center = new Center();
-        
+
         center.setName(name);
         center.setAddress(address);
 
@@ -27,5 +29,5 @@ public class CenterServiceImp implements CenterService{
         return center;
 
     }
-    
+
 }

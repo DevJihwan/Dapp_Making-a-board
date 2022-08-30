@@ -1,5 +1,5 @@
-let DWToken = artifacts.require("./TotalContract.sol");
+let TotalContract = artifacts.require("./TotalContract.sol");
 
 module.exports = function(deployer) {
-     deployer.deploy(DWToken);
+     deployer.deploy(TotalContract);
 };

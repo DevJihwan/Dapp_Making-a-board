@@ -5,6 +5,7 @@ import getWeb3 from "./getWeb3.js";
 import axios from "axios";
 //import LoginContract from '../smartContract/contracts/SampleToken.sol';
 import LoginContract from './contracts/LoginContract.json';
+import TotalContract from './contracts/TotalContract.json';
 
 
 class App extends Component {

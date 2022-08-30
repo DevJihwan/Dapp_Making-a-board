@@ -44,6 +44,8 @@ class App extends Component {
     this.setState({
       userAccount: _metaAccount
     });
+
+    this.instantiateContract();
     console.log("##########END getMetaMaskAddress########");
   }
 
@@ -61,41 +63,34 @@ class App extends Component {
         age:"33",
         address:"Test",
         metaMaskAddress:account
-
       }
     )
     console.log("##########END submitInfo########"+submitResults);
-
-    // axios.get('/users')
-    //   .then((data) => {console.log("#$"+data.data)})
-    //   .catch((Error) => {console.log(Error)})
-
   }
+  instantiateContract = async() => {
+    console.log("##########START instantiateContract########");
 
-  sendToken = async() => {
-      console.log("##########START sendToken########");
-
+      //스마트컨트랙트 불러오기 
       const contract = require("@truffle/contract");
       const loginToken = contract(LoginContract);
 
-      console.log("##########TEST########"+contract);
-      //console.log("##########START sendToken########");
+      loginToken.setProvider(this.state.web3.currentProvider);
 
+      //스마트컨트랙트 인스턴스 생성
       await loginToken.deployed()
         .then(instance => {
           this.setState({
             userContractInstance: instance
-          });
+          }); 
         });
+  }
 
-      // await this.state.userContractInstance.Register(
-      //   { from: this.state.userAccount
-      //     value: 
-
-      //   }
-
-      // );
-
+  sendToken = async() => {
+      await this.state.rentalInstance.Register(      
+      {   from: this.state.userAccount,
+          value: this.state.web3.utils.toWei("1000", "DigitalWariioToken"),
+          gas: 900000     
+      });
     }
 
   render(){

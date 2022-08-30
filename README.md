@@ -5,11 +5,13 @@
     02. [DB]DB 생성 및 Service 연결
     03. [FE]화면에서 사용자의 click - event에 따라 메타마스트 주소 연결
     04. [FE-BE-DB]axios를 통하여 BE연결 및 DB 저장
+    05. [smartcontract] 스마트컨트랙트 작성 및 배포
+    06. [FE]화면에서 스마트컨트랙트 불러오기 
 
 [Git Command]
 ============= 
 
-    # git push 명령어
+    <h2># git push 명령어
         * git push -u origin main
         * push 할 때 충돌할 경우 : git pull --rebase 
     # git 명령어
@@ -51,4 +53,8 @@
             * docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=1234 -d -p 3306:3306 mysql:latest
 
 
-              
+[vs code extensions]
+====================              
+    * gitlens  : version check
+    * prettier : code formatter
+    * docker

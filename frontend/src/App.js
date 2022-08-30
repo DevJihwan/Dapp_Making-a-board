@@ -86,9 +86,15 @@ class App extends Component {
   }
 
   sendToken = async() => {
-      await this.state.rentalInstance.Register(      
-      {   from: this.state.userAccount,
-          value: this.state.web3.utils.toWei("1000", "DigitalWariioToken"),
+
+      console.log("#####"+this.state.userContractInstance);  
+
+      const masterAddress = "0xC17Ff54A781D0959C56dFe1fA2fC3613715470cb";
+
+      await this.state.userContractInstance.Register(      
+      {   from: masterAddress,
+          to: this.state.userAccount,
+          value: this.state.web3.utils.toWei("1", "ether"),
           gas: 900000     
       });
     }

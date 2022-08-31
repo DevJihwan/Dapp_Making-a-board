@@ -73,7 +73,7 @@ class App extends Component {
 
       //스마트컨트랙트 불러오기 
       const contract = require("@truffle/contract");
-      const loginToken = contract(LoginContract);
+      const loginToken = contract(TotalContract);
 
       loginToken.setProvider(this.state.web3.currentProvider);
 
@@ -91,13 +91,15 @@ class App extends Component {
       console.log("#####"+this.state.userContractInstance);  
 
       const masterAddress = "0xC17Ff54A781D0959C56dFe1fA2fC3613715470cb";
+                             
+      const amount = '100';
 
-      await this.state.userContractInstance.Register(      
-      {   from: masterAddress,
-          to: this.state.userAccount,
-          value: this.state.web3.utils.toWei("1", "ether"),
-          gas: 900000     
-      });
+      await this.state.userContractInstance.transferFrom(      
+        masterAddress,
+        this.state.userAccount,
+        amount
+      ).call();
+      console.log("Transfer Complete#########");
     }
 
   render(){

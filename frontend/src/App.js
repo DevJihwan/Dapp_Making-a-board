@@ -3,9 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import getWeb3 from "./getWeb3.js";
 import axios from "axios";
-//import LoginContract from '../smartContract/contracts/SampleToken.sol';
-import LoginContract from './contracts/LoginContract.json';
-import TotalContract from './contracts/TotalContract.json';
+import Cultural from './contracts/Cultural.json';
 
 
 class App extends Component {
@@ -33,7 +31,7 @@ class App extends Component {
    }).catch(() => {
        console.log("Error finding web3.");
    });
-}
+  }
 
   getMetaMaskAddress = async() => {
     console.log("#########START getMetaMaskAddress########");
@@ -68,12 +66,13 @@ class App extends Component {
     )
     console.log("##########END submitInfo########"+submitResults);
   }
+
   instantiateContract = async() => {
     console.log("##########START instantiateContract########");
 
       //스마트컨트랙트 불러오기 
       const contract = require("@truffle/contract");
-      const loginToken = contract(TotalContract);
+      const loginToken = contract(Cultural);
 
       loginToken.setProvider(this.state.web3.currentProvider);
 
@@ -88,19 +87,37 @@ class App extends Component {
 
   sendToken = async() => {
 
-      console.log("#####"+this.state.userContractInstance);  
+    console.log("##########START sendToken########");
 
-      const masterAddress = "0xC17Ff54A781D0959C56dFe1fA2fC3613715470cb";
-                             
-      const amount = '100';
+    const masterAddress = "0xC17Ff54A781D0959C56dFe1fA2fC3613715470cb";
+    const amount = '1000000000000000000';
 
-      await this.state.userContractInstance.transferFrom(      
-        masterAddress,
-        this.state.userAccount,
-        amount
-      ).call();
-      console.log("Transfer Complete#########");
-    }
+    /*
+    * balance check
+    */
+    // await this.state.userContractInstance.balanceOf(      
+    //   masterAddress
+    // ).then(result => {
+    //   console.log("#########Master Approve########"+result);
+    // });
+
+    await this.state.userContractInstance.approve(      
+      this.state.userAccount,
+      amount
+    ).send({ from : masterAddress });
+
+    console.log("####");
+        // ).then(
+      //   //user approve
+      //   this.state.userContractInstance.approve(this.state.userAccount,amount)
+      // )
+      // ).then(
+      //   //transfer
+      //   this.state.userContractInstance.transferFrom(masterAddress, this.state.userAccount, amount)  
+      // ).then(result => {
+      //   console.log("Transfer Complete#########"+result);
+      // })
+  }
 
   render(){
     return (

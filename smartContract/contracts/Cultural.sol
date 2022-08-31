@@ -117,7 +117,7 @@ contract StandardToken is ERC20 {
     }
 }
 
-contract TotalContract is StandardToken {
+contract Cultural is StandardToken {
     string public name; //token name
     uint8 public decimals; //소수점(18)to using wei
     string public symbol; //unit of Token
@@ -127,9 +127,9 @@ contract TotalContract is StandardToken {
     address public fundWallet; //ETH를 받을 이더리움 주소
 
     constructor() payable {
-        name = "DigitalWarriotToken";
+        name = "CuturalToken";
         decimals = 18;
-        symbol = "DWT";
+        symbol = "CUR";
         unitOneEthCanBuy = 100;
         fundWallet = msg.sender; //배포한 사람의 주소
         balances[msg.sender] = 10000000000000000000000;

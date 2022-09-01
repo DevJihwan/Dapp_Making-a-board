@@ -25,3 +25,11 @@
 [truffle/contract 구성을 위한 설치 패키지]
 ====================================
     * npm install @truffle/contract
+
+[Trouble shooting(web3.js)]
+===========================
+
+    * Case 01
+    * error msg : metamask rpc error code:4200 
+    * 원인 : web3.js를 이용하여 approve 권한을 부여할 때, from 주소를 하드코딩으로 넣으면 이렇게 에러가 발생함. 
+    * 해결 : from 지갑의 주소를 하드코딩으로 넣지 않고, window.ethereum.selectedAddress 으로 변경해줌. (사전에 메타마스크에서 연결 활성화 켜야함)

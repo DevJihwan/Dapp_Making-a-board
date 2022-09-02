@@ -89,8 +89,13 @@ class App extends Component {
 
     console.log("##########START sendToken########");
 
-    const masterAddress = window.ethereum.selectedAddress;
-    const amount = '1000000000000000000';
+    //const masterAddress = window.ethereum.selectedAddress;
+    const masterAddress = "0xc17ff54a781d0959c56dfe1fa2fc3613715470cb";
+    const amount = '100000000000000000000';
+    //const ToAddress = '0xde02bfc66bae5570e08651fe7a9faa43b8c5adaa';
+
+
+    console.log("#########masterAddress########"+masterAddress);
 
     /*
     * balance check
@@ -101,15 +106,15 @@ class App extends Component {
     //   console.log("#########Master Approve########"+result);
     // });
 
-    console.log("#$$#$#$#"+this.state.userAccount);
-
     /*
     * approve
     */
-    await this.state.userContractInstance.approve
-      (this.state.userAccount, amount, {from: masterAddress});
-      
-    this.state.userContractInstance.transferFrom(masterAddress, this.state.userAccount, amount)  
+    // await this.state.userContractInstance.approve
+    //   (this.state.userAccount, amount, {from: masterAddress});
+     
+    console.log("#########this.state.userAccount########"+this.state.userAccount);
+
+    await this.state.userContractInstance.transferFrom(masterAddress, this.state.userAccount, amount, {from : masterAddress})  
     .then(result => {
       console.log("Transfer Complete#########"+result);
     })

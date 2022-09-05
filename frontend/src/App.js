@@ -18,6 +18,8 @@ class App extends Component {
     };
   }
 
+
+  //Step01. 화면을 그릴때 사용자의 Metamask 연결 확인 및 주소 확인 
   componentDidMount() {
     console.log("#########START componetDidMount########");
     //getWeb3.js에서 결과를 리턴 받는다. 
@@ -33,6 +35,7 @@ class App extends Component {
    });
   }
 
+  //화면에서 Onclick Event로 메타마스크 주소를 State에 저장
   getMetaMaskAddress = async() => {
     console.log("#########START getMetaMaskAddress########");
     let _metaAccount;
@@ -48,6 +51,7 @@ class App extends Component {
     console.log("##########END getMetaMaskAddress########");
   }
 
+  //State에 저장한 주소와 회원정보를 백엔드 API호출하여 DB에 저장한다. 
   submitInfo = async() => {
     console.log("##########START submitInfo########");
 
@@ -64,9 +68,12 @@ class App extends Component {
         metaMaskAddress:account
       }
     )
+
+    this.initApprove();
     console.log("##########END submitInfo########"+submitResults);
   }
 
+  //회원가입 시 토큰을 전송하기위한 스마트컨트랙트 인스턴트 생성
   instantiateContract = async() => {
     console.log("##########START instantiateContract########");
 
@@ -85,6 +92,25 @@ class App extends Component {
         });
   }
 
+  initApprove = async() => {
+    console.log("##########START initApprove########");
+
+    //const masterAddress = window.ethereum.selectedAddress;
+    const masterAddress = "0xc17ff54a781d0959c56dfe1fa2fc3613715470cb";
+    const amount = '100000000000000000000';
+
+    /*
+    * approve
+    */
+        await this.state.userContractInstance.approve(this.state.userAccount, amount, {from: masterAddress})
+        .then(result=>{
+          console.log("#########+Approve Complete#########"+result);
+        })
+
+    console.log("##########START initApprove########");
+  }
+
+  //토큰을 회원가입한 사용자에게 전송한다. 
   sendToken = async() => {
 
     console.log("##########START sendToken########");
@@ -92,10 +118,7 @@ class App extends Component {
     //const masterAddress = window.ethereum.selectedAddress;
     const masterAddress = "0xc17ff54a781d0959c56dfe1fa2fc3613715470cb";
     const amount = '100000000000000000000';
-    //const ToAddress = '0xde02bfc66bae5570e08651fe7a9faa43b8c5adaa';
-
-
-    console.log("#########masterAddress########"+masterAddress);
+    const ToAddress = '0xde02bfc66bae5570e08651fe7a9faa43b8c5adaa';
 
     /*
     * balance check
@@ -106,18 +129,12 @@ class App extends Component {
     //   console.log("#########Master Approve########"+result);
     // });
 
-    /*
-    * approve
-    */
-    // await this.state.userContractInstance.approve
-    //   (this.state.userAccount, amount, {from: masterAddress});
-     
-    console.log("#########this.state.userAccount########"+this.state.userAccount);
-
-    await this.state.userContractInstance.transferFrom(masterAddress, this.state.userAccount, amount, {from : masterAddress})  
+    await this.state.userContractInstance.transfer(ToAddress, amount, {from : masterAddress})  
     .then(result => {
-      console.log("Transfer Complete#########"+result);
+      console.log("#########+Transfer Complete#########"+result);
     })
+
+    console.log("##########END sendToken########");
   }
 
   render(){

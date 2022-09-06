@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import logo from './logo.svg';
-import './App.css';
 import getWeb3 from "./getWeb3.js";
 import axios from "axios";
 import Cultural from './contracts/Cultural.json';
 import { Route } from 'react-router-dom';
-import { Home, Auth } from 'pages';
+import { Home, Auth } from './pages';
+import HeaderContainer from 'containers/Base/HeaderContainer';
+
 
 
 class App extends Component {
@@ -141,12 +141,10 @@ class App extends Component {
 
   render(){
     return (
+      /*
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          {/* <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p> */}
           <button 
             className="App-link"
             onClick = {() => this.getMetaMaskAddress()}
@@ -167,12 +165,16 @@ class App extends Component {
             Send DWT Token
           </button>
         </header>
-        <body>
-            <Route exact path="/" component={Home}/>
-            <Route path="/auth" component={Auth}/>
-        </body>
       </div>
+      */
+      <div>
+         <HeaderContainer/>
+        <Route exact path="/" component={Home}/>
+        <Route path="/auth" component={Auth}/>
+      </div>
+
     );
+
   }
 }
 

@@ -46,7 +46,7 @@ const AuthWrapper = ({children}) => (
     <Positioner>
         <ShadowedBox>
             <LogoWrapper>
-                <Logo to="/">HEURM</Logo>
+                <Logo to="/">DWT</Logo>
             </LogoWrapper>
             <Contents>
                 {children}

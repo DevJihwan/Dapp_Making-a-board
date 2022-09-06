@@ -9,6 +9,8 @@
 ==============
     * npm install react-router-dom
     * npm install react-redux redux redux-actions immutable styled-components open-color
+    * npm install @reduxjs/toolkit
+    * npm install styled-components open-color
 
 [src폴더 구성]
 ============

@@ -1,25 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import ReactDOM from 'react-dom';
 import Root from './Root';
-import RegisterComponent from './components/RegisterComponent';
-import registerServiceWorker from './registerServiceWorker';
-//import reportWebVitals from './reportWebVitals';
+//import registerServiceWorker from './registerServiceWorker';
+import './index.css';
+import configureStore from './redux/configureStore.js';
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <RegisterComponent/>
-//     <App />
-//   </React.StrictMode>
-// );
+const store = configureStore();
 
-ReactDOM.render(<Root />, document.getElementById('root'));
-registerServiceWorker();
-
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-//reportWebVitals();
+ReactDOM.render(<Root store={store}/>, document.getElementById('root'));

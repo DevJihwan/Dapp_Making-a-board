@@ -4,6 +4,8 @@ import './App.css';
 import getWeb3 from "./getWeb3.js";
 import axios from "axios";
 import Cultural from './contracts/Cultural.json';
+import { Route } from 'react-router-dom';
+import { Home, Auth } from 'pages';
 
 
 class App extends Component {
@@ -165,6 +167,10 @@ class App extends Component {
             Send DWT Token
           </button>
         </header>
+        <body>
+            <Route exact path="/" component={Home}/>
+            <Route path="/auth" component={Auth}/>
+        </body>
       </div>
     );
   }

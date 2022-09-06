@@ -2,14 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Root from './Root';
+import RegisterComponent from './components/RegisterComponent';
+import registerServiceWorker from './registerServiceWorker';
 //import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//     <RegisterComponent/>
+//     <App />
+//   </React.StrictMode>
+// );
+
+ReactDOM.render(<Root />, document.getElementById('root'));
+registerServiceWorker();
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

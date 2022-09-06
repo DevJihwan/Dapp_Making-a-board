@@ -5,6 +5,19 @@
     * DB에 저장이 완료되면, 송금을 위한 한도 부여를 한다. (approve())
     * 한도부여가 완료되면 마스터 지갑에서 사용자의 지갑으로 송금을 한다. 
 
+[추가한 npm 모듈]
+==============
+    * npm install react-router-dom
+    * npm install react-redux redux redux-actions immutable styled-components open-color
+
+[src폴더 구성]
+============
+    * conmponents : 프리젠테이셔널 컴포넌트
+    * containers : 컨테이너 컴포넌트
+    * lib : 프로젝트에서 필요한 함수들 
+    * pages : 라우트 관련 컴포넌트
+    * redux : 리덕스 관련 코드 
+
 [web3]
 ======
     * Web3.js 를 통해 이더리움RPC 통신을 지원함

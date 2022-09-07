@@ -25,6 +25,17 @@ public class UserController {
         System.out.println("##########################User Controller : Create User End###########################");
     }
 
+    @PostMapping("/metamask")
+    public void registerMetamaskSvc(@RequestBody User data) {
+        System.out.println(
+                "##########################User Controller : registerMetamaskSvc Start###########################");
+        System.out
+                .println("##########################User Controller ########################### : "
+                        + data.getMetaMaskAddress());
+        userservice.registerMetamask(data.getUserId(), data.getMetaMaskAddress());
+        System.out.println("##########################User Controller : Create User End###########################");
+    }
+
     @GetMapping("/find")
     public String finfUserSvc(@RequestBody User data) {
         System.out.println("##########################User Controller : Find User Start###########################");

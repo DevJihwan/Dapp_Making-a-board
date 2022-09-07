@@ -9,7 +9,8 @@ class ConnectMetamask extends Component {
         super(props);
         this.state = {
           userAccount: null,
-          userToken: null,
+          userName: null,
+          userId: null,
           web3:null,
           userContractInstance:null
         };
@@ -38,6 +39,9 @@ class ConnectMetamask extends Component {
 
         _metaAccount = this.state.web3.currentProvider.selectedAddress;
         console.log("#########Step02.getMetaMaskAddress : _metaAccount########"+_metaAccount);
+
+        console.log("#########Step02.getMetaMaskAddress : this.state.userId########"+this.state.userId);
+
 
         this.setState({
         userAccount: _metaAccount

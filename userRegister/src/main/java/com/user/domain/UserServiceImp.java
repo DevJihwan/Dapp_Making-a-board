@@ -42,4 +42,20 @@ public class UserServiceImp implements UserService {
         return user;
     }
 
+    // 회원가입 후 같은 row에 메타마스크 지갑주소 업데이트
+    public void registerMetamask(String userId, String metaMaskAddress) {
+        System.out
+                .println("##########################User Service : registerMetamask START###########################");
+
+        Optional<User> userOptional = userRepository.findByuserId(userId);
+        User user = userOptional.get();
+        user.setMetaMaskAddress(metaMaskAddress);
+
+        userRepository.save(user);
+
+        System.out
+                .println("##########################User Service : registerMetamask END###########################");
+
+    }
+
 }

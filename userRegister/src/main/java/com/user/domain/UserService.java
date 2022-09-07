@@ -6,6 +6,8 @@ public interface UserService {
 
     User findUser(String userId);
 
+    void registerMetamask(String userId, String metaMaskAddress);
+
     // User deleteUser(String name);
 
 }

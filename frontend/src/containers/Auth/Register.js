@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {useHistory} from 'react-router-dom';
 import { AuthContent, InputWithLabel, AuthButton, RightAlignedLink } from 'components/Auth';
 import axios from "axios";
 
@@ -46,10 +47,14 @@ class Register extends Component {
             userEmail:email,
             metaMaskAddress:""
         }
-        )
+        ).then((response) => {
+            console.log("########## submitInfo DB insert Complete ########"+response);
+            this.props.history.push('/auth/ConnectMetamask')
+        })
 
         // this.initApprove();
         console.log("##########END submitInfo########"+submitResults);
+
     }  
 
 
@@ -68,3 +73,4 @@ class Register extends Component {
 }
 
 export default Register;
+

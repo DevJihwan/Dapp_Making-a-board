@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getWeb3 from "./getWeb3.js";
+import getWeb3 from "./components/Auth/getWeb3.js";
 import axios from "axios";
 import Cultural from './contracts/Cultural.json';
 import { Route } from 'react-router-dom';

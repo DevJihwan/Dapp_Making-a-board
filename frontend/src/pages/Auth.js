@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as baseActions from 'redux/modules/base';
 import { AuthWrapper } from 'components/Auth';
 import { Route } from 'react-router-dom';
-import { Login, Register } from 'containers/Auth';
+import { Login, Register, ConnectMetamask } from 'containers/Auth';
 
 class Auth extends Component {
     // 페이지에 진입 할 때 헤더를 비활성화
@@ -22,6 +22,7 @@ class Auth extends Component {
             <AuthWrapper>
                 <Route path="/auth/login" component={Login}/>
                 <Route path="/auth/register" component={Register}/>
+                <Route path="/auth/ConnectMetamask" component={ConnectMetamask}/>
             </AuthWrapper>
         );
     }

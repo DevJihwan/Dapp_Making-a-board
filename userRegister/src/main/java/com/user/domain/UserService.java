@@ -2,10 +2,10 @@ package com.user.domain;
 
 public interface UserService {
 
-    User joinUser(String name, String age, String address, String MetaMaskAddress);
-    User findUser(String name);
+    User joinUser(String userId, String userPw, String userEmail, String MetaMaskAddress);
 
+    User findUser(String userId);
 
-    //User deleteUser(String name);
+    // User deleteUser(String name);
 
 }

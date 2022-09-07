@@ -14,13 +14,13 @@ public class UserServiceImp implements UserService {
     @Autowired
     private final UserRepository userRepository;
 
-    public User joinUser(String name, String age, String address, String MetaMaskAddress) {
+    public User joinUser(String userId, String userPw, String userEmail, String MetaMaskAddress) {
         System.out.println("##########################User Service : Create User Start###########################");
         User user = new User();
-        
-        user.setName(name);
-        user.setAge(age);
-        user.setAddress(address);
+
+        user.setUserId(userId);
+        user.setUserPw(userPw);
+        user.setUserEmail(userEmail);
         user.setStatus(true);
         user.setMetaMaskAddress(MetaMaskAddress);
 
@@ -32,9 +32,9 @@ public class UserServiceImp implements UserService {
 
     }
 
-    public User findUser(String name){
+    public User findUser(String userId) {
         System.out.println("##########################User Service : Find User Start###########################");
-        Optional<User> userOptional = userRepository.findByname(name);
+        Optional<User> userOptional = userRepository.findByuserId(userId);
         User user = userOptional.get();
 
         System.out.println("##########################User Service : Find User Start###########################");

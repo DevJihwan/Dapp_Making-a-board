@@ -5,7 +5,10 @@ import oc from 'open-color';
 const Title = styled.div`
     font-size: 1.5rem;
     font-weight: 500;
-    color: ${oc.gray[8]};
+
+    text-align: center;
+    
+    color: ${oc.grape[0]};
     margin-bottom: 1rem;
 `;
 

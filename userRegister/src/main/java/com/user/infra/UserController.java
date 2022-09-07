@@ -19,22 +19,24 @@ public class UserController {
     @PostMapping("/join")
     public void joinUserSvc(@RequestBody User data) {
         System.out.println("##########################User Controller : Create User Start###########################");
-        System.out.println("##########################getMetaMaskAddress###########################"+data.getMetaMaskAddress());
-        userservice.joinUser(data.getName(), data.getAge(), data.getAddress(), data.getMetaMaskAddress());
+        System.out
+                .println("##########################User Controller ########################### : " + data.getUserId());
+        userservice.joinUser(data.getUserId(), data.getUserPw(), data.getUserEmail(), data.getMetaMaskAddress());
         System.out.println("##########################User Controller : Create User End###########################");
     }
 
     @GetMapping("/find")
     public String finfUserSvc(@RequestBody User data) {
         System.out.println("##########################User Controller : Find User Start###########################");
-        User user = userservice.findUser(data.getName());
+        User user = userservice.findUser(data.getUserId());
 
-        String userName = user.getName();
-        
-        System.out.println("##########################User Controller : Find User End###########################" + userName);
+        String userName = user.getUserId();
+
+        System.out.println(
+                "##########################User Controller : Find User End###########################" + userName);
 
         return userName;
-        
+
     }
 
 }

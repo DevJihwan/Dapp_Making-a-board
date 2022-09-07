@@ -15,7 +15,7 @@ const Positioner = styled.div`
 
 // 흰 배경, 내용 중간 정렬
 const WhiteBackground = styled.div`
-    background: white;
+    background: black;
     display: flex;
     justify-content: center;
     height: auto;
@@ -44,7 +44,7 @@ const HeaderContents = styled.div`
 const Logo = styled.div`
     font-size: 1.4rem;
     letter-spacing: 2px;
-    color: ${oc.teal[7]};
+    color: ${oc.grape[0]};
     font-family: 'Rajdhani';
 `;
 

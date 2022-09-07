@@ -11,6 +11,15 @@
     * npm install react-redux redux redux-actions immutable styled-components open-color
     * npm install @reduxjs/toolkit
     * npm install styled-components open-color
+    * npm install lottie-web (animation 관련)
+
+[micro interaction 넣는 방법]
+===========================
+    * https://lottiefiles.com/ 에서 json 형태로 원하는 animation 다운로드
+    * /lib/animation 폴더에 해당 json 파일 저장 
+    * /components/에서 가져온 애니메이션을 호출하는 컴포넌트 작성 
+    * 작성된 컴포넌트를 컨테이너에 담으면 끝.
+    * 색상 참조 : https://yeun.github.io/open-color/     
 
 [src폴더 구성]
 ============

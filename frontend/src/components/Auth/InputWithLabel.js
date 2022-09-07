@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
 const Label = styled.div`
     font-size: 1rem;
-    color: ${oc.gray[6]};
+    color: ${oc.grape[0]};
     margin-bottom: 0.25rem;
 `;
 

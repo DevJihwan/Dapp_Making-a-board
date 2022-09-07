@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public interface UserRepository extends CrudRepository<User, String> {
 
-    Optional<User> findByname(String name);
+    Optional<User> findByuserId(String userId);
 
 }

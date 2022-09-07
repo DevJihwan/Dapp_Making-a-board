@@ -20,7 +20,7 @@ const ShadowedBox = styled.div`
 
 // 로고
 const LogoWrapper = styled.div`
-    background: ${oc.teal[7]};
+    background: ${oc.grape[9]};
     height: 5rem;
     display: flex;
     align-items: center;
@@ -37,7 +37,7 @@ const Logo = styled(Link)`
 
 // children 이 들어가는 곳
 const Contents = styled.div`
-    background: white;
+    background: black;
     padding: 2rem;
     height: auto;
 `;

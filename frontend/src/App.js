@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import getWeb3 from "./components/Auth/getWeb3.js";
 import axios from "axios";
 import Cultural from './contracts/Cultural.json';
 import { Route } from 'react-router-dom';
@@ -9,7 +8,7 @@ import HeaderContainer from 'containers/Base/HeaderContainer';
 
 
 class App extends Component {
-
+  /*
   constructor(props) {
     super(props);
     this.state = {
@@ -100,17 +99,19 @@ class App extends Component {
     //const masterAddress = window.ethereum.selectedAddress;
     const masterAddress = "0xc17ff54a781d0959c56dfe1fa2fc3613715470cb";
     const amount = '100000000000000000000';
-
+  
     /*
     * approve
     */
-        await this.state.userContractInstance.approve(this.state.userAccount, amount, {from: masterAddress})
+    /*
+    await this.state.userContractInstance.approve(this.state.userAccount, amount, {from: masterAddress})
         .then(result=>{
           console.log("#########+Approve Complete#########"+result);
         })
 
     console.log("##########START initApprove########");
   }
+  
 
   //토큰을 회원가입한 사용자에게 전송한다. 
   sendToken = async() => {
@@ -130,7 +131,7 @@ class App extends Component {
     // ).then(result => {
     //   console.log("#########Master Approve########"+result);
     // });
-
+    /*
     await this.state.userContractInstance.transfer(ToAddress, amount, {from : masterAddress})  
     .then(result => {
       console.log("#########+Transfer Complete#########"+result);
@@ -138,6 +139,8 @@ class App extends Component {
 
     console.log("##########END sendToken########");
   }
+  */
+  
 
   render(){
     return (

@@ -16,11 +16,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    private String userId;
 
-    private String age;
+    private String userPw;
 
-    private String address;
+    private String userEmail;
 
     private Boolean status;
 

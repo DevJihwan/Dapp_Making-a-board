@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, withRouter} from 'react-router-dom';
 import { AuthContent, InputWithLabel, AuthButton, RightAlignedLink } from 'components/Auth';
 import axios from "axios";
 
@@ -49,7 +49,7 @@ class Register extends Component {
         }
         ).then((response) => {
             console.log("########## submitInfo DB insert Complete ########"+response);
-            this.props.history.push('/auth/ConnectMetamask')
+            this.props.history.push('/auth/ConnectMetamask', {state: this.state.userId});
         })
 
         // this.initApprove();
@@ -72,5 +72,5 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);
 

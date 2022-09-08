@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import Cultural from './contracts/Cultural.json';
 import { Route } from 'react-router-dom';
 import { Home, Auth } from './pages';
 import HeaderContainer from 'containers/Base/HeaderContainer';

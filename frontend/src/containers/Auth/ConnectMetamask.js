@@ -21,7 +21,7 @@ class ConnectMetamask extends Component {
     //Step01. 화면을 그릴때 사용자의 Metamask 연결 확인 및 주소 확인 
     componentDidMount() {
         //Register.js에서 보낸 사용자 ID를 변수에 저장 
-        const getParams = this.props.location.state.state; 
+        const getParams = this.props.location.state.state;
         console.log("STEP0-0.#### getParams #### : "+getParams);
 
         this.setState({
@@ -50,15 +50,9 @@ class ConnectMetamask extends Component {
         _metaAccount = this.state.web3.currentProvider.selectedAddress;
         console.log("STEP1-1.######### getMetaMaskAddress : _metaAccount ########"+_metaAccount);
 
-        console.log("STEP1-2.######### getMetaMaskAddress : this.state.userId ########"+this.state.userId);
+        console.log("STEP1-2.######### getMetaMaskAddress : this.state.userId ########"+this.state.userId); 
 
-
-        // this.setState({
-        // userAccount: _metaAccount
-        // });
-
-        // console.log("#########Step02.getMetaMaskAddress : this.state.userAccount########"+this.state.userAccount);
-
+        
         this.instantiateContract()
         .then(result => {
             console.log("STEP2-0.##### START instantiateContract ##### : " + result);
@@ -66,10 +60,11 @@ class ConnectMetamask extends Component {
         })
         .then(result => {
             console.log("STEP2-1.########## instantiateContract + this.state.web3######## : "+this.state.web3);
-            this.props.history.push('/auth/Congrat', {state: this.state.web3});
+            this.props.history.push('/auth/Congrat');
         }).catch(e =>{
             console.log("STEP2-e.##### .then ERROR ##### : "+e);
         })
+
         console.log("STEP2-2.########## END instantiateContract ########");
     }
 

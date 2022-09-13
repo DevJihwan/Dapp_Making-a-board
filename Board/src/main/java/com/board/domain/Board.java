@@ -1,4 +1,4 @@
-package com.center.domain;
+package com.board.domain;
 
 import javax.persistence.*;
 import lombok.Data;
@@ -6,25 +6,25 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "center")
+@Table(name = "board")
 @Data
 @Getter
 @Setter
-public class Center {
+public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    private String title;
 
-    private String address;
+    private Stirng writer_userid;
 
-    private String lecture_nm;
+    private String article;
 
-    private String lecture_fee;
+    private String tags;
 
-    private String lecture_limit_number;
+    private String agree_cnt;
 
     private Boolean status;
 

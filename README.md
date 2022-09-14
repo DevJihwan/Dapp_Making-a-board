@@ -1,12 +1,17 @@
 [작업순서]
 =======
-    00. [BE]userRegister Service 작성 (Spring-boot maver) : 
-    01. [DB]Docker Mysql image 
-    02. [DB]DB 생성 및 Service 연결
-    03. [FE]화면에서 사용자의 click - event에 따라 메타마스트 주소 연결
-    04. [FE-BE-DB]axios를 통하여 BE연결 및 DB 저장
-    05. [smartcontract] 스마트컨트랙트 작성 및 배포
-    06. [FE]화면에서 스마트컨트랙트 불러오기 
+    * 회원가입 및 토큰지급
+        00. [BE]userRegister Service 작성 (Spring-boot maven)
+        01. [DB]Docker Mysql image 
+        02. [DB]DB 생성 및 Service 연결
+        03. [FE]화면에서 사용자의 click - event에 따라 메타마스트 주소 연결
+        04. [FE-BE-DB]axios를 통하여 BE연결 및 DB 저장
+        05. [smartcontract] 스마트컨트랙트 작성 및 배포
+        06. [FE]화면에서 스마트컨트랙트 불러오기 
+    
+    * 게시물등록 및 공감 
+        00. [BE]Board Service 작성 (spring-boot maven)
+        01. [BE]게시물등록(register), 게시물삭제(delete), 공감하기(agree) 서비스 
 
 [Git Command]
 ============= 

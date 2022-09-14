@@ -10,6 +10,6 @@ import com.board.domain.Board;
 @RestController
 public interface BoardRepository extends CrudRepository<Board, String> {
 
-    Optional<Center> findByboard(String title);
+    Optional<Board> findBytitle(String title);
 
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.board.domain.Board;
-import com.board.domain.BoardrService;
+import com.board.domain.BoardService;
 
 @RestController
 @RequestMapping(value = "/board")
@@ -17,13 +17,37 @@ public class BoardCotroller {
     BoardService boardservice;
 
     @PostMapping("/register")
-    public void registerBoadSvc(@RequestBody Center data) {
+    public void registerBoadSvc(@RequestBody Board data) {
         System.out
-                .println("##########################Board Controller : registerBoad Start###########################");
+                .println("##########################Board Controller : registerBoad Start###########################"
+                        + data.getArticle() + data.getTitle());
 
         // Board registerBoad(String title, String article, String tags);
-        boardservice.registerBoad(data.getWriter_userid(), data.getTitle(), data.getAticle(), data.getTags());
+        boardservice.registerBoad(data.getWriter_userid(), data.getTitle(), data.getArticle(), data.getTags());
         System.out.println("##########################Board Controller : registerBoad End###########################");
+    }
+
+    @PostMapping("/delete")
+    public void deleteBoardSvc(@RequestBody Board data) {
+        System.out
+                .println("##########################Board Controller : deleteBoardSvc Start###########################"
+                        + data.toString());
+
+        // Board registerBoad(String title, String article, String tags);
+        boardservice.deleteBoard(data.getTitle());
+        System.out
+                .println("##########################Board Controller : deleteBoardSvc End###########################");
+    }
+
+    @PostMapping("/agree")
+    public void agreeBoardSvc(@RequestBody Board data) {
+        System.out
+                .println("##########################Board Controller : agreeBoardSvc Start###########################"
+                        + data.toString());
+
+        // Board registerBoad(String title, String article, String tags);
+        boardservice.agreeBoard(data.getTitle());
+        System.out.println("##########################Board Controller : agreeBoardSvc End###########################");
     }
 
 }

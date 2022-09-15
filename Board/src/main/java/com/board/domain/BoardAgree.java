@@ -1,4 +1,4 @@
-package com.board.domain;
+package main.java.com.board.domain;
 
 import javax.persistence.*;
 import lombok.Data;
@@ -13,6 +13,8 @@ public class BoardAgree {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private String title_no;
 
     private String writer_userid;
 

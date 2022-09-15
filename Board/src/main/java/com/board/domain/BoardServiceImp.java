@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.board.infra.BoardRepository;
+import main.java.com.board.infra.BoardAgreeRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,12 +15,14 @@ public class BoardServiceImp implements BoardService {
 
     @Autowired
     private final BoardRepository boardRepository;
+    private final BoardAgreeRepository boardAgreeRepository;
 
     // Board registerBoad(String title, String article, String tags);
     public Board registerBoad(String writer_userid, String title, String article, String tags) {
         System.out.println("##########################Board Service : registerBoad START###########################");
 
         Board board = new Board();
+        BoardAgree boardAgree = new BoardAgree();
 
         // 제목과 내용이 모두 있는 경우만 등록
         if (title.isEmpty() || article.isEmpty() || title == null || article == null) {
@@ -29,6 +32,9 @@ public class BoardServiceImp implements BoardService {
 
         } else {
 
+            /*
+             * Board Table Insert
+             */
             board.setWriter_userid(writer_userid);
             board.setTitle(title);
             board.setArticle(article);
@@ -42,6 +48,17 @@ public class BoardServiceImp implements BoardService {
             board.setStatus(true);
 
             boardRepository.save(board);
+
+            /*
+             * Board Agree Table insert (create row)
+             */
+            String _title_no = Long.toString(board.getId());
+            boardAgree.setTitle_no(_title_no);
+            boardAgree.setWriter_userid(writer_userid);
+            boardAgree.setBoardstatus(true);
+
+            boardAgreeRepository.save(boardAgree);
+
         }
 
         System.out.println("##########################Board Service : registerBoad End###########################");
@@ -67,12 +84,15 @@ public class BoardServiceImp implements BoardService {
         return board;
     }
 
-    public void agreeBoard(String title) {
+    public void agreeBoard(String title, String agree_userid) {
         System.out.println("##########################Board Service : agreeBoard START###########################");
 
         Optional<Board> boardOptional = boardRepository.findBytitle(title);
         Board board = boardOptional.get();
 
+        /*
+         * Board Table Update
+         */
         // DB에 저장되어 있는 값을 불러옴.
         String cnt = board.getAgree_cnt();
         // +1을 해주기 위해 int로 전환

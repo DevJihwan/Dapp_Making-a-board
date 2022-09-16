@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.board.domain.Board;
 import com.board.domain.BoardService;
+import com.board.domain.AgreeInfo;
 
 @RestController
 @RequestMapping(value = "/board")
@@ -40,13 +41,13 @@ public class BoardCotroller {
     }
 
     @PostMapping("/agree")
-    public void agreeBoardSvc(@RequestBody Board data) {
+    public void agreeBoardSvc(@RequestBody AgreeInfo data) {
         System.out
                 .println("##########################Board Controller : agreeBoardSvc Start###########################"
                         + data.toString());
 
         // Board registerBoad(String title, String article, String tags);
-        boardservice.agreeBoard(data.getTitle());
+        boardservice.agreeBoard(data.getTitle(), data.getAgreeUserid());
         System.out.println("##########################Board Controller : agreeBoardSvc End###########################");
     }
 

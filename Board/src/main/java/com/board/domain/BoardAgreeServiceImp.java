@@ -1,10 +1,10 @@
-package main.java.com.board.domain;
+package com.board.domain;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import main.java.com.board.infra.BoardAgreeRepository;
+import com.board.infra.BoardAgreeRepository;
 
 import lombok.RequiredArgsConstructor;
 

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.board.infra.BoardRepository;
-import main.java.com.board.infra.BoardAgreeRepository;
+import com.board.infra.BoardAgreeRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,6 +15,7 @@ public class BoardServiceImp implements BoardService {
 
     @Autowired
     private final BoardRepository boardRepository;
+    @Autowired
     private final BoardAgreeRepository boardAgreeRepository;
 
     // Board registerBoad(String title, String article, String tags);
@@ -53,9 +54,9 @@ public class BoardServiceImp implements BoardService {
              * Board Agree Table insert (create row)
              */
             String _title_no = Long.toString(board.getId());
-            boardAgree.setTitle_no(_title_no);
+            boardAgree.setTitleNo(_title_no);
             boardAgree.setWriter_userid(writer_userid);
-            boardAgree.setBoardstatus(true);
+            boardAgree.setBoard_status(true);
 
             boardAgreeRepository.save(boardAgree);
 
@@ -84,7 +85,7 @@ public class BoardServiceImp implements BoardService {
         return board;
     }
 
-    public void agreeBoard(String title, String agree_userid) {
+    public void agreeBoard(String title, String agreeUserid) {
         System.out.println("##########################Board Service : agreeBoard START###########################");
 
         Optional<Board> boardOptional = boardRepository.findBytitle(title);
@@ -101,6 +102,20 @@ public class BoardServiceImp implements BoardService {
         board.setAgree_cnt(Integer.toString(++agreeCnt));
 
         boardRepository.save(board);
+
+        /*
+         * BoardAgree Table Update
+         */
+
+        String _title_no = Long.toString(board.getId());
+
+        Optional<BoardAgree> boardAgreeOptional = boardAgreeRepository.findBytitleNo(_title_no);
+        BoardAgree boardAgree = boardAgreeOptional.get();
+
+        boardAgree.setAgreeUserid(agreeUserid);
+        boardAgree.setCnt(Integer.toString(++agreeCnt));
+
+        boardAgreeRepository.save(boardAgree);
 
         System.out.println("##########################Board Service : agreeBoard END###########################");
 

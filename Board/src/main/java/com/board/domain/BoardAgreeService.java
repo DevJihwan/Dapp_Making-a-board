@@ -1,4 +1,4 @@
-package main.java.com.board.domain;
+package com.board.domain;
 
 public interface BoardAgreeService {
 

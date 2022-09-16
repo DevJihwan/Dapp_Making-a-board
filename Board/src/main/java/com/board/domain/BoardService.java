@@ -20,6 +20,6 @@ public interface BoardService {
 
     Board deleteBoard(String title);
 
-    void agreeBoard(String title);
+    void agreeBoard(String title, String agreeUserid);
 
 }

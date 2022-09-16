@@ -4,6 +4,8 @@ import javax.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
+import com.board.domain.AgreeInfo;
 import com.vladmihalcea.hibernate.type.json.*;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.Type;
@@ -21,11 +23,11 @@ public class BoardAgree {
     @Column(name = "title_no")
     private String titleNo;
 
-    private String writer_userid;
+    private String writer_userid
 
     @Type(type = "json")
-    @Column(name = "agree_userid", columnDefinition = "json")
-    private String agreeUserid;
+    @Column(name = "agreeInfo", columnDefinition = "json")
+    private AgreeInfo agreeInfo;
 
     private String cnt;
 

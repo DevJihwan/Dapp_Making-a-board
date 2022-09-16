@@ -1,5 +1,9 @@
 package com.board.domain;
 
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -98,8 +102,9 @@ public class BoardServiceImp implements BoardService {
         String cnt = board.getAgree_cnt();
         // +1을 해주기 위해 int로 전환
         int agreeCnt = Integer.parseInt(cnt);
-        // +1하면서 다시 셋팅
-        board.setAgree_cnt(Integer.toString(++agreeCnt));
+
+        String _agreeCnt = Integer.toString(++agreeCnt);
+        board.setAgree_cnt(_agreeCnt);
 
         boardRepository.save(board);
 
@@ -112,8 +117,14 @@ public class BoardServiceImp implements BoardService {
         Optional<BoardAgree> boardAgreeOptional = boardAgreeRepository.findBytitleNo(_title_no);
         BoardAgree boardAgree = boardAgreeOptional.get();
 
-        boardAgree.setAgreeUserid(agreeUserid);
-        boardAgree.setCnt(Integer.toString(++agreeCnt));
+        AgreeInfo agreeinfo = new AgreeInfo();
+
+        agreeinfo.setAgreeUserid(agreeUserid);
+        agreeinfo.setTitle(title);
+        agreeinfo.setAgreeUserStatus(true);
+
+        boardAgree.setAgreeInfo(agreeinfo);
+        boardAgree.setCnt(_agreeCnt);
 
         boardAgreeRepository.save(boardAgree);
 

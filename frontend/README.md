@@ -12,6 +12,9 @@
     * npm install @reduxjs/toolkit
     * npm install styled-components open-color
     * npm install lottie-web (animation 관련)
+    * npm install @material-ui/core (facebook 화면 관련)
+        -> react version 18일 경우 버전 문제로 충돌이 발생할 수 있음
+        -> npm i @material-ui/core --legacy-peer-deps
 
 [micro interaction 넣는 방법]
 ===========================

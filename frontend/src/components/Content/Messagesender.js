@@ -11,7 +11,7 @@ import db from "./firebase";
 
 function MessageSender() {
 
-    const[{user}, dispatch] = useStateValue();
+    const[{user}] = useStateValue();
 
     const[input, setInput] = useState("");
 

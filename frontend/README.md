@@ -16,6 +16,7 @@
         -> react version 18일 경우 버전 문제로 충돌이 발생할 수 있음
         -> npm i @material-ui/core --legacy-peer-deps
         -> npm i @material-ui/icons --legacy-peer-deps
+    * npm install --legacy-peer-deps --save firebase@^7.24.0 (firbase 설치)
 
 [micro interaction 넣는 방법]
 ===========================

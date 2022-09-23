@@ -11,7 +11,9 @@
     
     * 게시물등록 및 공감 
         00. [BE]Board Service 작성 (spring-boot maven)
-        01. [BE]게시물등록(register), 게시물삭제(delete), 공감하기(agree) 서비스 
+        01. [BE]게시물등록(register), 게시물삭제(delete), 공감하기(agree) 서비스
+        02. [FE]게시물등록 화면 작성 (BoardContent)
+        03. [FE]게시물목록 보여주는 화면 
 
 [Git Command]
 ============= 

@@ -58,6 +58,10 @@
     *[참고] : https://velog.io/@yeogenius/React-%EC%84%9C%EB%B2%84%EC%99%80-%ED%86%B5%EC%8B%A0%ED%95%B4%EB%B3%B4%EC%9E%90-feat.axios
            : https://ji-gwang.tistory.com/76
 
+    * 다중 proxy 설정 방법
+        -> npm --legacy-peer-deps install --save http-proxy-middleware
+        -> src 폴더 밑에 setupProxy.js 작성 
+
 [truffle/contract 구성을 위한 설치 패키지]
 ====================================
     * npm install @truffle/contract

@@ -23,7 +23,7 @@ public class BoardAgree {
     @Column(name = "title_no")
     private String titleNo;
 
-    private String writer_userid
+    private String writer_userid;
 
     @Type(type = "json")
     @Column(name = "agreeInfo", columnDefinition = "json")

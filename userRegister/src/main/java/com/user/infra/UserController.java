@@ -37,9 +37,9 @@ public class UserController {
     }
 
     @GetMapping("/find")
-    public String finfUserSvc(@RequestBody User data) {
+    public String finfUserSvc(@RequestParam(name = "userId") String id) {
         System.out.println("##########################User Controller : Find User Start###########################");
-        User user = userservice.findUser(data.getUserId());
+        User user = userservice.findUser(id);
 
         String userName = user.getUserId();
 

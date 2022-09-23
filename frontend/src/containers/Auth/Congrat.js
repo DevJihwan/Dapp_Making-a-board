@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CongratAnimation } from 'components/Auth';
+import { CongratAnimation, RightAlignedLink } from 'components/Auth';
 import {useHistory, withRouter} from 'react-router-dom';
 import Cultural from 'contracts/Cultural';
 
@@ -92,7 +92,7 @@ class Congrat extends Component {
     render() {
         return (
             <CongratAnimation title="로그인">
-
+                
             </CongratAnimation>
         );
     }

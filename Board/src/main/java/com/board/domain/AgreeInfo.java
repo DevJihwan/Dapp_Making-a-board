@@ -20,8 +20,3 @@ public class AgreeInfo {
     private Boolean agreeUserStatus;
 
 }
-
-@Data
-public class AgreeInfo {
-
-}

@@ -10,9 +10,19 @@ class Board extends Component {
         this.state = {
           title: null,
           content: null,
-          userId: null,
-          tag: null
+          writer_userid: null,
+          tags: null
         };
+    }
+
+    //Step01. 화면을 그릴때 로그인 페이지에서 보내준 사용자 id를 받아서 상태값에 저장 
+    componentDidMount() {
+        const getParams = this.props.location.state.state;
+        console.log("STEP0-0.#### getParams #### : "+getParams);
+    
+        this.setState({
+            writer_userid: getParams
+        });
     }
 
     handleChange = (e) => {
@@ -28,8 +38,7 @@ class Board extends Component {
 
         let _title = this.state.title;
         let _content = this.state.content;
-        let _userId = this.state.userId;
-        let _tag = this.state.tag;
+        let _tag = this.state.tags;
 
         const submitResults = await axios.post(
         //API URL
@@ -38,8 +47,8 @@ class Board extends Component {
         {
             article:_title,
             title:_content,
-            userId:_userId,
-            tag:_tag
+            writer_userid:this.state.writer_userid,
+            tags:_tag
         }
         ).then((response) => {
             console.log("########## submitBoard DB insert Complete ########"+response);
@@ -54,10 +63,10 @@ class Board extends Component {
         return (
             <BoardContent title="게시판">
                 <InputWithContent onChange={this.handleChange} value={this.state.title} label="제목" name="title" placeholder="제목"/>
-                <InputWithContent onChange={this.handleChange} value={this.state.content} label="내용" name="content" placeholder="내용" type="password"/>
-                <InputWithContent onChange={this.handleChange} value={this.state.tag} label="태그" name="tag" placeholder="태그" type="password"/>
+                <InputWithContent onChange={this.handleChange} value={this.state.content} label="내용" name="content" placeholder="내용"/>
+                <InputWithContent onChange={this.handleChange} value={this.state.tags} label="태그" name="tags" placeholder="태그"/>
                 <AuthButton onClick={() => this.submitBoard()}>게시하기</AuthButton>
-                <RightAlignedLink to="/auth/register">목록보기</RightAlignedLink>
+                <RightAlignedLink to="/board/List">목록보기</RightAlignedLink>
             </BoardContent>
         );
     }

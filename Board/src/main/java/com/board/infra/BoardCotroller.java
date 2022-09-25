@@ -21,7 +21,7 @@ public class BoardCotroller {
     public void registerBoadSvc(@RequestBody Board data) {
         System.out
                 .println("##########################Board Controller : registerBoad Start###########################"
-                        + data.getArticle() + data.getTitle());
+                        + data.toString());
 
         // Board registerBoad(String title, String article, String tags);
         boardservice.registerBoad(data.getWriter_userid(), data.getTitle(), data.getArticle(), data.getTags());

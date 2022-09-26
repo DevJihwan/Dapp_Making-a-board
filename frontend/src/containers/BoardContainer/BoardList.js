@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AuthButton, RightAlignedLink } from 'components/Auth';
-import { BoardContent, BoxwithClick } from 'components/BoardContent';
+import { BoardContent, BoxwithClick, BoardListComponent, BoardListColumn, BoardListRow } from 'components/BoardContent';
 import axios from "axios";
 
 class BoardList extends Component {
@@ -14,6 +14,7 @@ class BoardList extends Component {
             ).then((response) => {
                 console.log("########## getListComplete ########"+response);
 
+                /*
                 let arrayLength = response.data._embedded.boards.length;
                 let _agree_cnt, _title, _content, _user_id;
 
@@ -21,11 +22,13 @@ class BoardList extends Component {
                     _agree_cnt = response.data._embedded.boards[i].agree_cnt;
                     _title = response.data._embedded.boards[i].title;
                     _content = response.data._embedded.boards[i].article;
-                    _user_id = response.data._embedded.boards[i].writer_userid;
+                    _user_id = response.data._embedded.boards[i].writer_userid;    
                 }
+                */
 
-                
-
+                const item = (Object.values(response.data)).map((item) => (
+                    <BoardListRow key={item.}
+                ));
             })
         
         }
@@ -34,7 +37,9 @@ class BoardList extends Component {
     render() {
         return (
             <BoardContent title="게시판목록">
-
+                <BoardListComponent headerName={['글번호', '제목', '등록일', '작성자']}>
+                    
+                </BoardListComponent>
             </BoardContent>
         );
     }

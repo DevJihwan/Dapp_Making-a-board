@@ -57,7 +57,6 @@ class BoardList extends Component {
 
     }
 
-
     render() {
         return (
             <BoardContent title="게시판목록">

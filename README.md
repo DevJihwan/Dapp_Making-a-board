@@ -25,6 +25,24 @@
         * git config --list
         * git config --global user.name
         * git config --global user.email
+    
+    * Git Commit Msg : Template를 활용한 Commit msg 기록 남기기
+        01. 프로젝트 폴더에서 .git 이 위치한 곳에 템플릿을 작성
+        02. .git을 확인하려면 숨겨진 폴더까지 조회하는 명령어가 필요 
+            -> ls -la
+        03. 템플릿 파일 생성 
+            -> touch .gitmessage.txt
+        04. 템플릿 작성 
+        05. git config 적용
+            -> git config commit.template .gitmessage.txt
+        06. 템플릿을 사용하여 git push 날리기
+            * git add "파일명"
+                -> 파일이 위치한 곳에서 add 해야함. 
+            * git commit 
+                -> 터미널에서 템플릿이 보일것임. 
+                -> i 누르고 내용 작성 후 :wq!
+            * git push 
+            * git repo에 반영 여부 확인 
 
 
 [httpie install]

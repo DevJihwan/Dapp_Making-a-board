@@ -8,9 +8,9 @@
   .common-table-header-column {
     border-bottom: 1px solid #e8e8e8;
     padding: 0;
-    font-size: 16px;
-    padding: 10px 5px;
-    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 5px 5px;
+    color: #eceaea;
   }
   
   .common-table-row:hover {
@@ -20,4 +20,5 @@
   
   .common-table-column {
     padding: 10px 5px;
+    color: #eceaea;
   }

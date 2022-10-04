@@ -11,16 +11,16 @@ const BoardListComponent = props => {
           {
             headersName.map((item, index) => {
               return (
-                <td className="common-table-header-column" key={index}>{ item }</td>
+                <th className="common-table-header-column" key={index}>{ item }</th>
               )
             })
           }
         </tr>
       </thead>
       <tbody>
-        {
-          children
-        }
+          {
+            children
+          }
       </tbody>
     </table>
   )

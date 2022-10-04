@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AuthButton, RightAlignedLink } from 'components/Auth';
 import { BoardContent, BoxwithClick, BoardListComponent, BoardListColumn, BoardListRow } from 'components/BoardContent';
 import axios from "axios";
+import { CoPresent, Javascript } from '@mui/icons-material';
 
 class BoardList extends Component {
 
@@ -30,20 +31,22 @@ class BoardList extends Component {
     makeBoardList(res) {
 
         let arrayLength = res.data._embedded.boards.length;
-        let _agree_cnt, _title, _content, _user_id;
+        let _no, _agree_cnt, _title, _content, _user_id;
 
         for (let i=0; i<arrayLength; i++){
+            _no = i;
             _agree_cnt = res.data._embedded.boards[i].agree_cnt;
             _title = res.data._embedded.boards[i].title;
             _content = res.data._embedded.boards[i].article;
             _user_id = res.data._embedded.boards[i].writer_userid;    
 
         const _item  = (
-            <BoardListRow key={i}>
-                <BoardListColumn>{_agree_cnt}</BoardListColumn>
+            <BoardListRow key={_no}>
+                <BoardListColumn>{_no}</BoardListColumn>
                 <BoardListColumn>{_title}</BoardListColumn>
                 <BoardListColumn>{_content}</BoardListColumn>
                 <BoardListColumn>{_user_id}</BoardListColumn>
+                <BoardListColumn>{_agree_cnt}</BoardListColumn>
             </BoardListRow>
         );
 
@@ -58,7 +61,9 @@ class BoardList extends Component {
     render() {
         return (
             <BoardContent title="게시판목록">
-                {this.state.item}
+                <BoardListComponent headersName={['No', '제목', '내용', '작성자', '공감수']}>
+                    {this.state.item}
+                </BoardListComponent>
             </BoardContent>
         );
     }

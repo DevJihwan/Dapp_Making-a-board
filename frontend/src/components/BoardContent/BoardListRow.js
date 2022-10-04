@@ -2,11 +2,11 @@ import React from 'react';
 
 const BoardListRow = ({ children }) => {
   return (
-    <td className="common-table-column">
+    <tr className="common-table-column">
       {
         children
       }
-    </td>
+    </tr>
   )
 }
 

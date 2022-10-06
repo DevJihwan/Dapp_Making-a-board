@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
+import Congrat from '../../containers/Auth/Congrat';
+
 
 const BoardLikeColumn = ({ children }) => {
-
-  // console.log(" TEST1 #$%#$%#$#% "+props.value);
-  // console.log(" TEST2 #$%#$%#$#% "+this.props);
-  console.log(" TES3 #$%#$%#$#% "+children);
-  // console.log(" TES4 #$%#$%#$#% "+parseInt(children));
-  // console.log(" TES5 #$%#$%#$#% "+Number(children));
 
   const [value, setValue] = useState(0);
 
@@ -17,7 +13,14 @@ const BoardLikeColumn = ({ children }) => {
 
   const data = parseInt(value) + Number(children[1]);
 
-  console.log(" TES5 #$%#$%#$#% "+data);
+  if(data>10){
+    console.log("START INIT CONTRACT");
+    let _cogratComponent = new Congrat();
+
+    _cogratComponent.componentDidMount();
+
+  }
+
 
   return (
     <td className="common-table-column" onClick={() => clickLike()}>

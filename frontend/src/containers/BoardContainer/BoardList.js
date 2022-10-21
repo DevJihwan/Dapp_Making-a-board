@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { AuthButton, RightAlignedLink } from 'components/Auth';
-import { BoardContent, BoxwithClick, BoardListComponent, BoardListColumn, BoardListRow } from 'components/BoardContent';
+import { BoardContent, BoardLikeColumn, BoardListComponent, BoardListColumn, BoardListRow } from 'components/BoardContent';
 import axios from "axios";
 import { CoPresent, Javascript } from '@mui/icons-material';
 
@@ -46,7 +45,7 @@ class BoardList extends Component {
                 <BoardListColumn>{_title}</BoardListColumn>
                 <BoardListColumn>{_content}</BoardListColumn>
                 <BoardListColumn>{_user_id}</BoardListColumn>
-                <BoardListColumn>{_agree_cnt}</BoardListColumn>
+                <BoardLikeColumn> {_agree_cnt} </BoardLikeColumn>
             </BoardListRow>
         );
 
